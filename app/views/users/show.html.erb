@@ -1,6 +1,62 @@
+<html lang="en"><head>
+  <link rel="stylesheet" href="https://use.typekit.net/bxx3rsq.css">
 
-<h3>User: <%= @user.email %></h3>
-<p>All your birds:</p>
-<% @user.birds.each do |bird| %>
-  <div><%= bird.title %></div>
-<% end %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>User</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg static-top navbar-light" style="background-color: #FFCC33;">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-family: p22-franklin-caslon, sans-serif;">User</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/birds">Sightings</a>
+          </li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">User: <%= @user.email %></h3></h2><BR>
+        
+        <p>All your birds:</p>
+			<% @user.birds.each do |bird| %>
+			<div><%= bird.title %></div>
+		<% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body></html>

@@ -1,33 +1,19 @@
-<html lang="en"><head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>All sightings</title>
-
-  <!-- Bootstrap core CSS -->
-  <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-
-</head>
+<head>  <link rel="stylesheet" href="https://use.typekit.net/bxx3rsq.css"> </head>
 
 <body>
 
-  <!-- Navigation -->
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light" style="background-color: #FFCC33;">
 
     <div class="container">
-      <!--<a class="navbar-brand" href="#">Start Bootstrap</a>-->
+      <a class="navbar-brand" href="/birds" style="font-family: p22-franklin-caslon, sans-serif;">Sightings</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">All sightings
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="/birds">All sightings</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/home">Home</a>
@@ -48,46 +34,84 @@
     </div>
   </nav>
 
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1 class="mt-5">All sightings</h1>
-        <p>Click the author to see all posts by the author</p><BR>
 
-        <!-- <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.5.0</li>
-          <li>jQuery 3.5.1</li>
-        </ul>-->
+<div class="container-fluid">
+  <div class="row no-gutter">
 
-        <div id="birds">
-			<% @birds.each do |bird| %>
-			  <div class="bird">
-			  	<%= link_to bird.title, bird_path(bird) %>,
-			  	author: <%= link_to bird.user.email, user_birds_path(bird.user) %>,
-			  	category id: <%= bird.category_ids %>
-			  </div>
-			<% end %>
-		</div><BR><BR>
+    <div class="col-md-8 col-lg-6" style="background-color: white";>
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
 
-        
-        <div id="categories">
-			<p>See birds by category: Air, Land, Water, Other</p>
-			<%= form_tag("/birds", method: "get") do %>
-			<%= label_tag(:category_name, "Which category?") %>
-			<%= text_field_tag(:category_name) %>
-			<%= submit_tag("Search") %>
-			<% end %>
-		</div>
-      
-      </div>
+              <!-- <h3 class="login-heading mb-4">Sightings</h3> -->
+
+              <p style="font-weight: bold">Recent sightings</p> 
+              Click author to see their posts
+              <div class="form-label-group">
+                <div id="birds">
+
+                  <% @birds.each do |bird| %>
+                    <div class="bird">
+                      <%= link_to bird.title, bird_path(bird) %>,
+                      author: <%= link_to bird.user.email, 
+                      user_birds_path(bird.user) %>,
+                      category: 
+
+                      <% ids = bird.category_ids %>
+                      <% categories = Category.find(ids) %>
+                      <% categories.each do |category| %>
+                      <%= category.name %>
+                      <% end %>
+
+                    </div>
+                  <% end %>
+                </div><BR>
+                </div>
+
+                <div class="form-label-group">
+                  <div id="categories">
+                  <p style="font-weight: bold">Search by category</p> 
+                  Enter Air, Land, Water or Other
+                  <%= form_tag("/birds", method: "get") do %> 
+                  <%= text_field_tag(:category_name) %>
+                  <%= submit_tag("Search") %>
+                  <% end %>
+                </div>
+                </div>
+
+                <%= link_to 'Back', :back %>
+                <div class="custom-control custom-checkbox mb-3">
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>  
     </div>
+
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Map goes here</h3>
+
+                <div class="form-label-group">
+                </div>
+
+                <div class="form-label-group">
+                </div>
+
+                <div class="custom-control custom-checkbox mb-3">
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  
   </div>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.slim.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body></html>
+</div>
+</body>

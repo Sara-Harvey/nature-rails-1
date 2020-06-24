@@ -2,7 +2,7 @@ class BirdsController < ApplicationController
 	before_action :authentication_required
 
 	def index
-		
+
       if params[:user_id]
         @birds = User.find(params[:user_id]).birds
       elsif params[:category_name]
