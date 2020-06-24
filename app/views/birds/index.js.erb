@@ -1,0 +1,7 @@
+$('#birds').append('<%= j render(@birds) %>');
+<% if @birds.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@products) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
+<% sleep 1 %>

@@ -1,0 +1,6 @@
+
+<h3>User: <%= @user.email %></h3>
+<p>All your birds:</p>
+<% @user.birds.each do |bird| %>
+  <div><%= bird.title %></div>
+<% end %>

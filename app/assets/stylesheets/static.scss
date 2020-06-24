@@ -1,0 +1,32 @@
+// Place all the styles related to the Static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.masthead {
+  height: 100vh; min-height: 500px;
+  background-image: url('forest.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+
+.masthead h1 {
+  font-weight: bold;
+  color: white;
+  background: rgba(112,135,58,0.7);
+}
+
+.w3-button {
+  background-color: white; /* Green */
+  border: none;
+  border-radius: 4px;
+  color: #5C6D36;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: p22-franklin-caslon, sans-serif;
+  font-size: 16px;
+  margin: 10px 5px;
+  padding: 6px 22px;
+  cursor: pointer;
+}
